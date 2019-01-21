@@ -1,2 +1,4 @@
-Christoper Perry perrychr
-This is my assignment-1 submission!
+Christoper Perry
+perrychr
+CS 362
+Assignment 2
