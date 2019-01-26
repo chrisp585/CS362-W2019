@@ -1327,7 +1327,7 @@ int minionFunc(int choice1, int choice2, struct gameState *state, int handPos)
 
 	if (choice1)		//+2 coins
 	{
-		state->coins = state->coins + 20;  //***Bug: give a player +20 coins instead of +2
+		state->coins = state->coins + 2;
 	}
 
 	else if (choice2)		//discard hand, redraw 4, other players with 5+ cards discard hand and draw 4
