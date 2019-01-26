@@ -1402,7 +1402,7 @@ int baronFunc(int choice1, struct gameState *state)
 						isGameOver(state);
 					}
 				}
-				card_not_discarded = 0;//Exit the loop
+				card_not_discarded = 1;//Exit the loop ***Bug: change from 0 to 1*** 
 			}
 
 			else {
