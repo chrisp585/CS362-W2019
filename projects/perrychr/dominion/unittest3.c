@@ -1,3 +1,9 @@
+/****************************************************************************/
+/* Tests:  whoseTurn funtion                                                */
+/* Christopher Perry                                                        */
+/* CS 362  2/3/2019                                                         */
+/****************************************************************************/
+
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include "rngs.h"
@@ -18,7 +24,12 @@ int main() {
 
 	initializeGame(playerNum, k, 2, &G);
 
-	printf("This unit test, test to make sure the whoseTurn function is returning the correct players turn\n\n");
+	printf("\n*****************************************************************************************************");
+	printf("************************************ Test Beginning *************************************************");
+	printf("** This unit test, test to make sure the whoseTurn function is returning the correct players turn ***");
+	printf("*****************************************************************************************************");
+	printf("*****************************************************************************************************\n\n");
+
 
 	printf("Check turn right after game initialization: ");
 	if (whoseTurn(&G) == 0)
@@ -72,6 +83,10 @@ int main() {
 		printf("FAIL\n");
 		printf("Turn: %d", whoseTurn(&G));
 	}
+
+	printf("\n*****************************************************************************************************");
+	printf("************************************ Testing Complete ***********************************************");
+	printf("*****************************************************************************************************\n");
 
 	return 0;
 }
