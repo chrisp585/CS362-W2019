@@ -1242,9 +1242,8 @@ int adventurerFunc(int currentPlayer, struct gameState *state)
 			drawntreasure++;
 		else {
 			temphand[z] = cardDrawn;
-			/********************** BUG ***************************************/
-			/* Do not remove the top card. So the player have two copies of cardDrawn */
-			//state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
+
+			state->handCount[currentPlayer]--; // Bug fixed
 			z++;
 		}
 	}
@@ -1264,11 +1263,11 @@ int smithyFunc(int currentPlayer, struct gameState *state, int handPos)
 		drawCard(currentPlayer, state);
 	}
 
-	//discard card from hand
-	/************************** BUG *************************/
-	/* Trash the card instead of put the card in the discard pile */
-	//discardCard(handPos, currentPlayer, state, 0);
-	discardCard(handPos, currentPlayer, state, 1);
+
+	discardCard(handPos, currentPlayer, state, 0);
+	//discardCard(handPos, currentPlayer, state, 1);  Bug fixed
+
+
 	return 0;
 }
 
