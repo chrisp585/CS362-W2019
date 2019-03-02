@@ -29,19 +29,19 @@ runtests: testDrawCard
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
-randomTests: dominion.c randomtestadventurer.c rngs.o
+randomTests: dominion.c randomtestadventurer.c rngs.o randomtestcard1.c
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
 	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
-	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+	#gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 	./randomtestadventurer &> randomtestadventurer.out
 	./randomtestcard1 &> randomtestcard1.out
-	./randomtestcard2 &> randomtestcard2.out
+	#./randomtestcard2 &> randomtestcard2.out
 	gcov -b dominion.c >> randomtestadventurer.out
 	cat dominion.c.gcov >> randomtestadventurer.out
 	gcov -b dominion.c >> randomtestcard1.out
 	cat dominion.c.gcov >> randomtestcard1.out
-	gcov -b dominion.c >> randomtestcard2.out
-	cat dominion.c.gcov >> randomtestcard2.out
+	#gcov -b dominion.c >> randomtestcard2.out
+	#cat dominion.c.gcov >> randomtestcard2.out
 
 unittestresults: dominion.o unittest1.c unittest2.c unittest3.c unittest4.c cardtest1.c cardtest2.c cardtest3.c cardtest4.c rngs.o
 	gcc -o unittest1 -g unittest1.c  dominion.o rngs.o $(CFLAGS)
@@ -50,16 +50,16 @@ unittestresults: dominion.o unittest1.c unittest2.c unittest3.c unittest4.c card
 	gcc -o unittest4 -g unittest4.c  dominion.o rngs.o $(CFLAGS)
 	gcc -o cardtest1 -g cardtest1.c  dominion.o rngs.o $(CFLAGS)
 	gcc -o cardtest2 -g cardtest2.c  dominion.o rngs.o $(CFLAGS)
-	gcc -o cardtest3 -g cardtest3.c  dominion.o rngs.o $(CFLAGS)
-	gcc -o cardtest4 -g cardtest4.c  dominion.o rngs.o $(CFLAGS)
+	#gcc -o cardtest3 -g cardtest3.c  dominion.o rngs.o $(CFLAGS)
+	#gcc -o cardtest4 -g cardtest4.c  dominion.o rngs.o $(CFLAGS)
 	./unittest1 &> unittestresults.out
 	./unittest2 >> unittestresults.out
 	./unittest3 >> unittestresults.out
 	./unittest4 >> unittestresults.out
 	./cardtest1 >> unittestresults.out
 	./cardtest2 >> unittestresults.out
-	./cardtest3 >> unittestresults.out
-	./cardtest4 >> unittestresults.out
+	#./cardtest3 >> unittestresults.out
+	#./cardtest4 >> unittestresults.out
 	gcov -b dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 

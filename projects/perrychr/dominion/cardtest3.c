@@ -1,5 +1,5 @@
 /****************************************************************************/
-/* Tests:  smithy card funtion                                              */
+/* Tests:  sea hag card funtion                                             */
 /* Christopher Perry                                                        */
 /* CS 362  2/3/2019                                                         */
 /****************************************************************************/
@@ -13,74 +13,76 @@
 
 int main()
 {
+	const char* cardArr[] = {
+	"curse",
+	"estate",
+	"duchy",
+	"province",
+	"copper",
+	"silver",
+	"gold",
+	"adventurer",
+	"council_room",
+	"feast",
+	"gardens",
+	"mine",
+	"remodel",
+	"smithy",
+	"village",
+	"baron",
+	"great_hall",
+	"minion",
+	"steward",
+	"tribute",
+	"ambassador",
+	"cutpurse",
+	"embargo",
+	"outpost",
+	"salvager",
+	"sea_hag",
+	"treasure_map"
+	};
+
 	int playerNum;
 	struct gameState G;
 	int k[10] = { adventurer, sea_hag, embargo, village, minion, mine, cutpurse,
 			 baron, tribute, smithy };
-
 	playerNum = 4;
 
 	initializeGame(playerNum, k, 2, &G);
+	G.whoseTurn = 1;
 	int currentPlayer = G.whoseTurn;
+
+	sea_hagFunc(&G);
 
 	printf("\n*****************************************************************************************************\n");
 	printf("************************************ Test Beginning *************************************************\n");
-	printf("*****************             This test the smithy card function.           *************************\n");
+	printf("****************             This tests the sea_hagFunc function.           *************************\n");
 	printf("*****************************************************************************************************\n");
 	printf("*****************************************************************************************************\n\n");
 
-	printf("This test the smithy card function.\n\n");
 
-	printf("********Smithy card played**********\n");
-	smithyFunc(currentPlayer, &G, -1);
-
-	printf("Are the correct cards added to the players hand: ");
-	if (G.handCount[0] == 7)
+	for (int i = 0; i < G.numPlayers; i++)
 	{
-		printf("PASS\n");
-	}
-	else
-	{
-		printf("FAIL\n");
-		printf("Correct Hand Count: 7\n");
-		printf("Actual Hand Count: %d\n", G.handCount[0]);
-	}
-	printf("Is the cards played count incremented correctly: ");
-	if (G.playedCardCount == 1)
-	{
-		printf("PASS\n");
-	}
-	else
-	{
-		printf("FAIL\n");
-		printf("Correct Played Card Count: 1\n");
-		printf("Actual Played Card Count: %d\n", G.playedCardCount);
-	}
-
-	printf("\n********Smithy card played**********\n");
-	smithyFunc(currentPlayer, &G, -1);
-
-	printf("Are the correct cards added to the players hand: ");
-	if (G.handCount[0] == 9)
-	{
-		printf("PASS\n");
-	}
-	else
-	{
-		printf("FAIL\n");
-		printf("Correct Hand Count: 9\n");
-		printf("Actual Hand Count: %d\n", G.handCount[0]);
-	}
-	printf("Is the cards played count incremented correctly: ");
-	if (G.playedCardCount == 2)
-	{
-		printf("PASS\n");
-	}
-	else
-	{
-		printf("FAIL\n");
-		printf("Correct Played Card Count: 1\n");
-		printf("Actual Played Card Count: %d\n", G.playedCardCount);
+		if (i != currentPlayer)
+		{
+			printf("\n\n**** Player  %d ****\n", i);
+			printf("Current Deck: ");
+			for (int j = 0; j < G.deckCount[i]; j++)
+			{
+				printf("%s ", cardArr[G.deck[i][j]]);
+			}
+			printf("\nCurse on top of the deck: ");
+			if (G.deck[i][G.deckCount[i]--] == curse)
+			{
+				printf("PASS\n");
+			}
+			else
+			{
+				printf("FAIL\n");
+				printf("Top card on the deck is: %s", cardArr[G.deck[i][G.deckCount[i]--]]);
+			}
+		}
 	}
 
 	printf("\n*****************************************************************************************************\n");

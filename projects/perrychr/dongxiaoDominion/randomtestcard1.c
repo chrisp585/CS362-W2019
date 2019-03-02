@@ -39,8 +39,9 @@ int main()
 				 baron, tribute, smithy };
 
 		initializeGame(playerNum, k, randSeed, &G);
+		int currentPlayer = G.whoseTurn;
 
-		returnVal = smithyFunc(-1, &G);
+		returnVal = smithyFunc(currentPlayer, &G, -1);
 
 		if (G.handCount[0] == 7)
 		{

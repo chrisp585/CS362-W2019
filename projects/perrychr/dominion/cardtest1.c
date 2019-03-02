@@ -32,7 +32,7 @@ int main()
 	printf("This test the smithy card function.\n\n");
 
 	printf("********Smithy card played**********\n");
-	smithyFunc(currentPlayer, &G, -1);
+	smithyFunc(-1, &G);
 
 	printf("Are the correct cards added to the players hand: ");
 	if (G.handCount[0] == 7)
@@ -58,7 +58,7 @@ int main()
 	}
 
 	printf("\n********Smithy card played**********\n");
-	smithyFunc(currentPlayer, &G, -1);
+	smithyFunc(-1, &G);
 
 	printf("Are the correct cards added to the players hand: ");
 	if (G.handCount[0] == 9)

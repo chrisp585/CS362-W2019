@@ -1,5 +1,5 @@
 /****************************************************************************/
-/* Tests:  smithy card funtion                                              */
+/* Tests:  whoseTurn funtion                                                */
 /* Christopher Perry                                                        */
 /* CS 362  2/3/2019                                                         */
 /****************************************************************************/
@@ -11,76 +11,77 @@
 #include <math.h>
 #include <stdlib.h>
 
-int main()
-{
+
+
+int main() {
 	int playerNum;
+	int turn;
 	struct gameState G;
-	int k[10] = { adventurer, sea_hag, embargo, village, minion, mine, cutpurse,
-			 baron, tribute, smithy };
+	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
+			 sea_hag, tribute, smithy };
 
 	playerNum = 4;
 
 	initializeGame(playerNum, k, 2, &G);
-	int currentPlayer = G.whoseTurn;
 
 	printf("\n*****************************************************************************************************\n");
 	printf("************************************ Test Beginning *************************************************\n");
-	printf("*****************             This test the smithy card function.           *************************\n");
+	printf("** This unit test, test to make sure the whoseTurn function is returning the correct players turn ***\n");
 	printf("*****************************************************************************************************\n");
 	printf("*****************************************************************************************************\n\n");
 
-	printf("This test the smithy card function.\n\n");
 
-	printf("********Smithy card played**********\n");
-	smithyFunc(currentPlayer, &G, -1);
-
-	printf("Are the correct cards added to the players hand: ");
-	if (G.handCount[0] == 7)
+	printf("Check turn right after game initialization: ");
+	if (whoseTurn(&G) == 0)
 	{
 		printf("PASS\n");
 	}
 	else
 	{
 		printf("FAIL\n");
-		printf("Correct Hand Count: 7\n");
-		printf("Actual Hand Count: %d\n", G.handCount[0]);
-	}
-	printf("Is the cards played count incremented correctly: ");
-	if (G.playedCardCount == 1)
-	{
-		printf("PASS\n");
-	}
-	else
-	{
-		printf("FAIL\n");
-		printf("Correct Played Card Count: 1\n");
-		printf("Actual Played Card Count: %d\n", G.playedCardCount);
+		printf("Turn: %d", whoseTurn(&G));
 	}
 
-	printf("\n********Smithy card played**********\n");
-	smithyFunc(currentPlayer, &G, -1);
+	turn = 3;
+	G.whoseTurn = 3;
 
-	printf("Are the correct cards added to the players hand: ");
-	if (G.handCount[0] == 9)
+	printf("Now it is player %d's turn: ", turn);
+	if (whoseTurn(&G) == turn)
 	{
 		printf("PASS\n");
 	}
 	else
 	{
 		printf("FAIL\n");
-		printf("Correct Hand Count: 9\n");
-		printf("Actual Hand Count: %d\n", G.handCount[0]);
+		printf("Turn: %d", whoseTurn(&G));
 	}
-	printf("Is the cards played count incremented correctly: ");
-	if (G.playedCardCount == 2)
+
+	turn = 2;
+	G.whoseTurn = 2;
+
+	printf("Now it is player %d's turn: ", turn);
+	if (whoseTurn(&G) == turn)
 	{
 		printf("PASS\n");
 	}
 	else
 	{
 		printf("FAIL\n");
-		printf("Correct Played Card Count: 1\n");
-		printf("Actual Played Card Count: %d\n", G.playedCardCount);
+		printf("Turn: %d", whoseTurn(&G));
+	}
+
+	turn = 1;
+	G.whoseTurn = 1;
+
+	printf("Now it is player %d's turn: ", turn);
+	if (whoseTurn(&G) == turn)
+	{
+		printf("PASS\n");
+	}
+	else
+	{
+		printf("FAIL\n");
+		printf("Turn: %d", whoseTurn(&G));
 	}
 
 	printf("\n*****************************************************************************************************\n");

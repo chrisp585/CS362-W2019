@@ -84,7 +84,7 @@ int main()
 	int tempTreasureCount = treasureCount;
 
 	printf("\n**** Adventurer card played ****");
-	adventurerFunc(currentPlayer, &G);
+	adventurerFunc(&G);
 
 	treasureCount = 0;
 
@@ -153,7 +153,7 @@ int main()
 	tempTreasureCount = treasureCount;
 
 	printf("\n**** Adventurer card played ****");
-	adventurerFunc(currentPlayer, &G);
+	adventurerFunc(&G);
 
 	treasureCount = 0;
 
@@ -220,7 +220,7 @@ int main()
 	tempTreasureCount = treasureCount;
 
 	printf("\n**** Adventurer card played ****");
-	adventurerFunc(currentPlayer, &G);
+	adventurerFunc(&G);
 
 	treasureCount = 0;
 
@@ -286,7 +286,7 @@ int main()
 	tempTreasureCount = treasureCount;
 
 	printf("\n**** Adventurer card played ****");
-	adventurerFunc(currentPlayer, &G);
+	adventurerFunc(&G);
 
 	treasureCount = 0;
 

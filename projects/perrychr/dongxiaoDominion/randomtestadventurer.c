@@ -86,7 +86,7 @@ int main()
 			int tempTreasureCount = treasureCount;
 			treasureCount = 0;
 
-			returnVal = adventurerFunc(&G);
+			returnVal = adventurerFunc(currentPlayer, &G);
 
 			for (int i = 0; i < G.handCount[currentPlayer]; i++)
 			{

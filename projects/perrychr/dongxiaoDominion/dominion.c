@@ -648,8 +648,8 @@ int getCost(int cardNumber)
 }
 
 //declarations of the card functions
-int adventurerAction(int currentPlayer, struct gameState *state);
-int smithyAction(int currentPlayer, struct gameState *state, int handPos);
+int adventurerFunc(int currentPlayer, struct gameState *state);
+int smithyFunc(int currentPlayer, struct gameState *state, int handPos);
 int council_roomAction(int currentPlayer, struct gameState *state, int handPos);
 int feastAction(int currentPlayer, struct gameState *state, int choice1);
 int remodelAction(int currentPlayer, struct gameState *state, int choice1, int choice2, int handPos);
@@ -680,7 +680,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 	switch (card)
 	{
 	case adventurer:
-		adventurerAction(currentPlayer, state);
+		adventurerFunc(currentPlayer, state);
 		return 0;
 	case council_room:
 		council_roomAction(currentPlayer, state, handPos);
@@ -734,7 +734,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
 	case smithy:
 		//+3 Cards
-		smithyAction(currentPlayer, state, handPos);
+		smithyFunc(currentPlayer, state, handPos);
 		return 0;
 
 	case village:
@@ -1226,7 +1226,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
 	return 0;
 }
 
-int adventurerAction(int currentPlayer, struct gameState *state)
+int adventurerFunc(int currentPlayer, struct gameState *state)
 {
 	int cardDrawn;
 	int drawntreasure = 0;
@@ -1256,7 +1256,7 @@ int adventurerAction(int currentPlayer, struct gameState *state)
 }
 
 
-int smithyAction(int currentPlayer, struct gameState *state, int handPos)
+int smithyFunc(int currentPlayer, struct gameState *state, int handPos)
 {
 	int i;
 	for (i = 0; i < 3; i++)
